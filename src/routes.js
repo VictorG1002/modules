@@ -1,10 +1,14 @@
+const UserController = require('./controllers/UserController')
+
 module.exports = [
   {
     endpoint: '/users',
-    method: 'GET'
+    method: 'GET',
+    handler: UserController.listUsers
   },
   {
     endpoint: '/users',
-    method: 'POST'
+    method: 'POST',
+    handler: UserController.listUsers
   }
 ]
