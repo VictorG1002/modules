@@ -15,5 +15,23 @@ module.exports = {
       'Content-Type': 'application/json'
     })
     resp.end(JSON.stringify(sordeUsers))
+  },
+
+  getUserById(req, resp) {
+    const { id } = req.params
+
+    const user = users.find(user => user.id === Number(id))
+
+    if (!user) {
+      resp.writeHead(200, {
+        'Content-Type': 'application/json'
+      })
+      resp.end(JSON.stringify({ error: 'User not found' }))
+    } else {
+      resp.writeHead(200, {
+        'Content-Type': 'application/json'
+      })
+      resp.end(JSON.stringify(user))
+    }
   }
 }
